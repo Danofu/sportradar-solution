@@ -47,13 +47,13 @@ $ yarn install
   ```
 - `POST /api/v1/matches/start` - starts a simulation. 
   - Returns:
-    - **Simulation has started** - if simulation is not started yet.
-    - **Simulation has already started** - otherwise.
+    - **Simulation has started** - returns if simulation is not started yet.
+    - **Simulation has already started** - returns otherwise.
 - `POST /api/v1/matches/stop` - stops a simulation.
   - Returns:
-    - **Simulation is not running** - if simulation wasn't running.
-    - JSON similar to `GET /api/vi/matches` - if simulation was stopped.
-- `POST /api/v1/matches/restart` - resets data and runs `POST /api/v1/matches/start`
+    - **Simulation is not running** - returns if simulation wasn't running.
+    - **JSON object** that similar to `GET /api/vi/matches` response - returns if simulation was stopped.
+- `POST /api/v1/matches/restart` - resets data and runs `POST /api/v1/matches/start` handler function.
 
 ## WebSocket Server
 The WebSocket server is built with **Socket.io** and it shares the same port as the **API** server. The server is provided with a namespace for matches, which follows the pattern `/v1/matches`.
